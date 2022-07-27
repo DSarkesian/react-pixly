@@ -1,4 +1,4 @@
-import { upload } from "@testing-library/user-event/dist/upload";
+
 import { useState, react } from "react";
 
 
@@ -15,7 +15,7 @@ function UploadForm({ uploadPhoto }) {
     evt.preventDefault();
     //TODO: clear errors on second submit
     // try {
-     uploadPhoto(formData);
+    await uploadPhoto(formData);
     // } catch (err) {
       // setErrors(err);
     }

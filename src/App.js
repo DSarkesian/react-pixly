@@ -1,7 +1,7 @@
 import UploadForm from "./UploadForm"
 import {   useState } from "react";
 import './App.css';
-// import PixlyApi from './api';
+import PixlyApi from './api';
 
 function App() {
   const [image,setImage] = useState("")
@@ -9,15 +9,15 @@ function App() {
 
 
 
-  function upload(image){
+  async function uploadPhoto(image){
     setImage(image)
-    // const result = await PixlyApi.uploadNewImage(image)
-    // return result
-
+    const result = await PixlyApi.uploadNewImage(image)
+    return result
   }
+
   return (
     <div className="App">
-      <UploadForm upload={upload}/>
+      <UploadForm uploadPhoto={uploadPhoto}/>
 
     </div>
   );
