@@ -1,14 +1,15 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:8000/"
-class PixlyApi{
-
-   // post new user
+const BASE_URL = "http://localhost:5000/";
+class PixlyApi {
+  // post new user
   static async uploadNewImage(image) {
-  let res = await axios.post(`${BASE_URL}images/upload`, image, "post");
-  console.log(" uploadNewImage ", res);
-  return res
+    console.log(image, 'IMAGE*****')
+    let res = await axios.post(`${BASE_URL}images/upload`, image, {
+      headers: { "content-type": "multipart/form-data" }
+    });
+    console.log(" uploadNewImage ", res);
+    //return res;
+  }
 }
 
-}
-
-export default PixlyApi
+export default PixlyApi;
