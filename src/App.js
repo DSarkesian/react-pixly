@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import UploadForm from "./UploadForm"
+import {   useState } from "react";
 import './App.css';
+// import PixlyApi from './api';
 
 function App() {
+  const [image,setImage] = useState("")
+  console.log(image)
+
+
+
+  function upload(image){
+    setImage(image)
+    // const result = await PixlyApi.uploadNewImage(image)
+    // return result
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <UploadForm upload={upload}/>
+
     </div>
   );
 }
